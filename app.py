@@ -3,8 +3,6 @@ import streamlit as st, json
 st.title("🤖 AI Job Finder")
 st.write("Automatically matched jobs based on your skills.")
 
-import streamlit as st
-
 st.title("AI Job Finder")
 
 st.sidebar.header("Your Profile")
@@ -42,3 +40,4 @@ for j in jobs:
     st.write(j["reason"])
 
     st.markdown(f"[View Job Posting]({j['url']})")
+
