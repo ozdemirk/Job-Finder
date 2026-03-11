@@ -49,8 +49,3 @@ if search_button:
         st.write(j["reason"])
     
         st.markdown(f"[View Job Posting]({j['url']})")
-
-
-
-
-
