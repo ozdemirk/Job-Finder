@@ -25,7 +25,7 @@ def agent_cycle():
     "experience": experience,
     "locations": preferred_locations,
     "job_types": job_types
-}
+    }
 
     source = choose_source(profile)
     print(f"Selected source: {source}")
@@ -75,3 +75,4 @@ def agent_cycle():
 if __name__ == "__main__":
 
     agent_cycle()
+
