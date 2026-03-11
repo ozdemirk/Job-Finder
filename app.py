@@ -29,6 +29,14 @@ job_types = st.sidebar.multiselect(
 
 search_button = st.sidebar.button("Search Jobs")
 
+profile = {
+    "name": name,
+    "skills": [s.strip() for s in skills.split(",")],
+    "experience": experience,
+    "locations": preferred_locations,
+    "job_types": job_types
+}
+
 with open("data/jobs_filtered.json") as f:
     jobs = json.load(f)
 
@@ -38,5 +46,6 @@ for j in jobs:
     st.write(j["reason"])
 
     st.markdown(f"[View Job Posting]({j['url']})")
+
 
 
