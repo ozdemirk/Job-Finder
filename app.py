@@ -23,9 +23,9 @@ preferred_locations = st.sidebar.text_input(
     "Turkey, UAE, Remote"
 )
 
-job_types = st.sidebar.multiselect(
-    "Job Type",
-    ["Remote", "Hybrid", "On-site"]
+desired_roles = st.sidebar.text_input(
+    "Desired Roles",
+    ["Product Manager", "Product Owner"]
 )
 
 search_button = st.sidebar.button("Search Jobs")
@@ -35,7 +35,7 @@ if search_button:
         "skills": [s.strip() for s in skills.split(",")],
         "experience": experience,
         "locations": preferred_locations,
-        "job_types": job_types
+        "desired_roles": desired_roles
     }
     
     agent_cycle(profile)
@@ -49,3 +49,4 @@ if search_button:
         st.write(j["reason"])
     
         st.markdown(f"[View Job Posting]({j['url']})")
+
