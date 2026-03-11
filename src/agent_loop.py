@@ -48,8 +48,16 @@ def agent_cycle(profile):
         jobs = fetch_from_source(source,q)
         all_jobs.extend(jobs)
         
+    for job in all_jobs:
+        if "job_id" not in job:
+            job["job_id"] = generate_job_id(job)
+            
     new_jobs = filter_new_jobs(all_jobs, seen_ids)
-    seen_ids.update([j["job_id"] for j in new_jobs])
+    seen_ids.update([
+        j.get("job_id")
+        for j in new_jobs
+        if j.get("job_id")
+    ])
     save_memory(seen_ids)
     
     # jobs = fetch_from_source(source, query)
@@ -79,6 +87,7 @@ def agent_cycle(profile):
 if __name__ == "__main__":
 
     agent_cycle()
+
 
 
 
