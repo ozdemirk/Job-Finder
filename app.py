@@ -7,8 +7,6 @@ st.title("AI Job Finder")
 
 st.sidebar.header("Your Profile")
 
-name = st.sidebar.text_input("Name")
-
 skills = st.sidebar.text_area(
     "Skills (comma separated)",
     "Product Management, AI, Strategy"
@@ -40,4 +38,5 @@ for j in jobs:
     st.write(j["reason"])
 
     st.markdown(f"[View Job Posting]({j['url']})")
+
 
