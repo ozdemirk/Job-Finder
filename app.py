@@ -30,6 +30,8 @@ desired_roles = st.sidebar.text_input(
 
 search_button = st.sidebar.button("Search Jobs")
 
+st.sidebar.info("Agent ready")
+
 if search_button:
     profile = {
         "skills": [s.strip() for s in skills.split(",")],
@@ -38,7 +40,11 @@ if search_button:
         "desired_roles": desired_roles
     }
     
+    st.sidebar.warning("Agent running...")
+    
     agent_cycle(profile)
+
+    st.sidebar.success("Agent finished")
     
     with open("data/jobs_filtered.json") as f:
         jobs = json.load(f)
