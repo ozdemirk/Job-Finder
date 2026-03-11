@@ -1,11 +1,23 @@
+import json
+import datetime
+import hashlib
 from src.job_tools import fetch_from_source
 from src.match_jobs import rank_jobs
 from src.explain_matches import generate_explanations
-import json
 from src.query_builder import build_queries
 from src.job_freshness import filter_fresh_jobs
 from src.memory import load_memory, save_memory, filter_new_jobs
-import datetime
+
+
+def generate_job_id(job):
+
+    base = (
+        job.get("title","") +
+        job.get("company","") +
+        job.get("url","")
+    )
+
+    return hashlib.md5(base.encode()).hexdigest()
 
 def choose_source(profile):
     # Simple logic for now (we'll make this LLM-based later)
@@ -67,5 +79,6 @@ def agent_cycle(profile):
 if __name__ == "__main__":
 
     agent_cycle()
+
 
 
