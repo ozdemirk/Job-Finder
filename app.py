@@ -25,7 +25,7 @@ preferred_locations = st.sidebar.text_input(
 
 desired_roles = st.sidebar.text_input(
     "Desired Roles",
-    ["Product Manager", "Product Owner"]
+    "Product Manager", "Product Owner"
 )
 
 search_button = st.sidebar.button("Search Jobs")
@@ -49,4 +49,5 @@ if search_button:
         st.write(j["reason"])
     
         st.markdown(f"[View Job Posting]({j['url']})")
+
 
