@@ -16,8 +16,16 @@ def choose_source(profile):
 def agent_cycle():
     print("🤖 Running Job Agent...")
 
-    with open("data/my_profile.json") as f:
-        profile = json.load(f)
+    # with open("data/my_profile.json") as f:
+    #     profile = json.load(f)
+
+    profile = {
+    "name": name,
+    "skills": [s.strip() for s in skills.split(",")],
+    "experience": experience,
+    "locations": preferred_locations,
+    "job_types": job_types
+}
 
     source = choose_source(profile)
     print(f"Selected source: {source}")
@@ -65,4 +73,5 @@ def agent_cycle():
     print(datetime.datetime.now())
 
 if __name__ == "__main__":
+
     agent_cycle()
