@@ -1,4 +1,5 @@
 import streamlit as st, json
+from src.agent_loop import agent_cycle
 
 st.title("🤖 AI Job Finder")
 st.write("Automatically matched jobs based on your skills.")
@@ -37,6 +38,8 @@ profile = {
     "job_types": job_types
 }
 
+agent_cycle(profile)
+
 with open("data/jobs_filtered.json") as f:
     jobs = json.load(f)
 
@@ -46,6 +49,7 @@ for j in jobs:
     st.write(j["reason"])
 
     st.markdown(f"[View Job Posting]({j['url']})")
+
 
 
 
